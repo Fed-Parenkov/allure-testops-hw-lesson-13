@@ -75,7 +75,7 @@ public class HeaderTests extends TestBase {
 
     @Severity(SeverityLevel.CRITICAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Корректность ссылок пунктов")
+    @DisplayName("Переход по ссылкам пунктов")
     @CsvSource(value = {
             "Система; features/",
             "Услуги; services/",
@@ -90,10 +90,10 @@ public class HeaderTests extends TestBase {
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
 
-        step("Перейти в раздел " + name, () ->
+        step("Кликнуть по пункту " + name, () ->
                 $(".main-nav").$(byText(name)).click());
 
-        step("Проверить корректность ссылки раздела " + name, () -> {
+        step("Проверить, что открылась страница раздела " + name, () -> {
             String checkUrl = "https://www.tezis-doc.ru/" + link;
             String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
             assertEquals(checkUrl, currentUrl);
@@ -115,15 +115,16 @@ public class HeaderTests extends TestBase {
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
 
-        step("Навести курсор на пункт " + name, () -> {
-            $(".main-nav").$(byText(name)).hover();
-            $("[class=" + value + "]").shouldBe(visible);
-        });
+        step("Навести курсор на пункт " + name, () ->
+            $(".main-nav").$(byText(name)).hover());
+
+        step("Проверить, что появился всплывающий pop-up пункта " + name, () ->
+                $("[class=" + value + "]").shouldBe(visible));
     }
 
     @Severity(SeverityLevel.MINOR)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Кнопка и поле поиска")
+    @DisplayName("Выполнение поиска")
     @Test
     void checkSearchButton() {
         step("Открыть главную страницу", () ->
@@ -132,7 +133,7 @@ public class HeaderTests extends TestBase {
         step("Кликнуть по кнопке поиска", () ->
                 $("#expand-search-button").shouldBe(visible).click());
 
-        step("В поле поиска ввести произвольный текст, нажать Enter", () -> {
+        step("В раскрывшемся поле поиска ввести произвольный текст, например 'test', нажать Enter", () -> {
             $("#gsc-iw-id1").shouldBe(visible);
             $("#gsc-i-id1").setValue("test").pressEnter();
         });
@@ -146,7 +147,7 @@ public class HeaderTests extends TestBase {
 
     @Severity(SeverityLevel.CRITICAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Отображение контактного телефона")
+    @DisplayName("Отображение контактного номера телефона")
     @Test
     void checkPhoneNumber() {
         step("Открыть главную страницу", () ->
@@ -164,11 +165,10 @@ public class HeaderTests extends TestBase {
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
 
-        step("Открыть форму кликом по ссылке 'Перезвоните мне'", () ->
-                $(".call-me").shouldBe(visible).shouldHave(text("Перезвоните мне")).click());
-
-        step("Проверить, что модальное окно открылось", () ->
-                $(".modal").shouldBe(visible));
+        step("Открыть форму обратного звонка кликом по ссылке 'Перезвоните мне'", () -> {
+                $(".call-me").shouldBe(visible).shouldHave(text("Перезвоните мне")).click();
+                $(".modal").shouldBe(visible);
+        });
 
         step("Проверить текст тайтла и цвет слова 'ЗАКАЗАТЬ' (должен быть синий)", () -> {
             $("#modalTitle").shouldBe(visible).shouldHave(text("ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК"));
@@ -181,7 +181,7 @@ public class HeaderTests extends TestBase {
         step("Проверить наличие кнопки 'X'", () ->
                 $("[aria-label='Close modal']").shouldBe(visible));
 
-        step("Закрыть форму", () -> {
+        step("Закрыть форму кликом по кнопке 'X'", () -> {
             $("[aria-label='Close modal']").click();
             $(".modal").shouldBe(disappear, Duration.ofMillis(1000));
         });
@@ -195,20 +195,23 @@ public class HeaderTests extends TestBase {
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
 
-        step("Открыть форму кликом по ссылке 'Перезвоните мне'", () -> {
+        step("Открыть форму обратного звонка кликом по ссылке 'Перезвоните мне'", () -> {
             $(".call-me").shouldBe(visible).shouldHave(text("Перезвоните мне")).click();
             $(".modal").shouldBe(visible);
         });
 
-        step("Кликнуть по кнопке 'Оставить заявку'", () -> {
-            $("#submitButton").click();
+        step("Кликнуть по кнопке 'Оставить заявку'", () ->
+            $("#submitButton").click());
+
+        step("Проверить, что форма не отправляется", () -> {
             // сообщение об успешном приеме заявки не появляется
             $(".success-message-wrapper").shouldNotBe(visible);
             // окно остается открытым
             $(".modal").shouldBe(visible);
-            // текст красного цвета
-            $("[for='demo-privacy-policy1']")
-                    .shouldHave(cssValue("color", "rgba(253, 107, 86, 1)"));
         });
+
+        step("Проверить, что текст формы стал красного цвета", () ->
+            $("[for='demo-privacy-policy1']")
+                    .shouldHave(cssValue("color", "rgba(253, 107, 86, 1)")));
     }
 }
