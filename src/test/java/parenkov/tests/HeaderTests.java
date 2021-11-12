@@ -174,10 +174,10 @@ public class HeaderTests extends TestBase {
         step("Проверить текст и наличие кнопки 'Оставить заявку'", () ->
                 $("#submitButton").shouldBe(visible).shouldHave(text("Оставить заявку")));
 
-        step("Проверить наличие кнопки 'X'", () ->
+        step("Проверить наличие кнопки X", () ->
                 $("[aria-label='Close modal']").shouldBe(visible));
 
-        step("Закрыть форму кликом по кнопке 'X'", () -> {
+        step("Закрыть форму кликом по кнопке X", () -> {
             $("[aria-label='Close modal']").click();
             $(".modal").shouldBe(disappear, Duration.ofMillis(1000));
         });
