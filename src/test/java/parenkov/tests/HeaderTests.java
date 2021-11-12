@@ -65,7 +65,7 @@ public class HeaderTests extends TestBase {
                 open("https://www.tezis-doc.ru/"));
 
         step("Проверить корректность названия пункта " + name, () ->
-                $(".main-nav").$("a[href=" + link + "]")
+                $(".main-nav").$("a[href='" + link + "']")
                         .shouldBe(visible).shouldHave(text(name)));
     }
 
@@ -115,7 +115,7 @@ public class HeaderTests extends TestBase {
             $(".main-nav").$(byText(name)).hover());
 
         step("Проверить, что появился всплывающий pop-up пункта " + name, () ->
-                $("[class=" + value + "]").shouldBe(visible));
+                $("[class='" + value + "']").shouldBe(visible));
     }
 
     @Severity(SeverityLevel.MINOR)
@@ -155,7 +155,7 @@ public class HeaderTests extends TestBase {
 
     @Severity(SeverityLevel.NORMAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Элементы формы 'Обратный звонок'")
+    @DisplayName("Отображение элементов формы 'Обратный звонок'")
     @Test
     void checkCallBackForm() {
         step("Открыть главную страницу", () ->
