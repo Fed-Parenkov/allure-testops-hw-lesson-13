@@ -1,6 +1,6 @@
 package parenkov.tests.demowebshop;
 
-import parenkov.config.demowebshop.App;
+import parenkov.config.App;
 import parenkov.helpers.AllureRestAssuredFilter;
 import parenkov.tests.TestBase;
 import com.codeborne.selenide.Configuration;

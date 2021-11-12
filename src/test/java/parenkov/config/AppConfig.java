@@ -1,4 +1,4 @@
-package parenkov.config.demowebshop;
+package parenkov.config;
 
 import org.aeonbits.owner.Config;
 

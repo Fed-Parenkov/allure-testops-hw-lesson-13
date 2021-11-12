@@ -1,10 +1,7 @@
 package parenkov.tests;
 
 import com.codeborne.selenide.WebDriverRunner;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Link;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,8 +16,7 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Feature("Header главной страницы")
-
+@Story("Header главной страницы")
 public class HeaderTests extends TestBase {
 
     @Severity(SeverityLevel.MINOR)
