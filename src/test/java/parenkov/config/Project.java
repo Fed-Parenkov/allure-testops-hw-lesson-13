@@ -1,4 +1,4 @@
-package cloud.autotests.config;
+package parenkov.config;
 
 import org.aeonbits.owner.ConfigFactory;
 

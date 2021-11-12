@@ -1,4 +1,4 @@
-package cloud.autotests.config.demowebshop;
+package parenkov.config.demowebshop;
 
 import org.aeonbits.owner.Config;
 

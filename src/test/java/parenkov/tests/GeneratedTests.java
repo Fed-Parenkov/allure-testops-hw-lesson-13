@@ -1,6 +1,6 @@
-package cloud.autotests.tests;
+package parenkov.tests;
 
-import cloud.autotests.helpers.DriverUtils;
+import parenkov.helpers.DriverUtils;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

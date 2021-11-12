@@ -1,4 +1,4 @@
-package cloud.autotests.docs;
+package parenkov.docs;
 
 import com.codeborne.selenide.*;
 import org.openqa.selenium.Keys;

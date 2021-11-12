@@ -1,8 +1,8 @@
-package cloud.autotests.tests.demowebshop;
+package parenkov.tests.demowebshop;
 
-import cloud.autotests.config.demowebshop.App;
-import cloud.autotests.helpers.AllureRestAssuredFilter;
-import cloud.autotests.tests.TestBase;
+import parenkov.config.demowebshop.App;
+import parenkov.helpers.AllureRestAssuredFilter;
+import parenkov.tests.TestBase;
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Story;
 import io.restassured.RestAssured;

@@ -1,4 +1,4 @@
-package cloud.autotests.docs;
+package parenkov.docs;
 
 import org.junit.jupiter.api.*;
 
