@@ -16,7 +16,7 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Story("Header главной страницы")
+@Feature("Header главной страницы")
 public class HeaderTests extends TestBase {
 
     @Severity(SeverityLevel.MINOR)
