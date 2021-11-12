@@ -81,7 +81,7 @@ public class HeaderTests extends TestBase {
             "Компания; company/",
             "Госсектор; gossector/"
     }, delimiter = ';')
-    @ParameterizedTest(name = "Переход из главной в раздел {0}")
+    @ParameterizedTest(name = "Переход из главной страницы в раздел {0}")
     void checkItemsLinks(String name, String link) {
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
