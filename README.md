@@ -68,7 +68,6 @@ java "-DprojectName=${JOB_NAME}" "-Denv=<enviroment>" "-DreportLink=${BUILD_URL}
 ```
 ---
 ### Результаты прогона тестов
----
 ![](src/test/resources/images/logos/build.svg)
 #### Сборка Jenkins
 :arrow_right: [**Jenkins Job**](https://jenkins.autotests.cloud/job/08-parenkov-fedor-tezis-doc/) :arrow_left:
