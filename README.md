@@ -18,7 +18,7 @@
 
 <img src="src/test/resources/images/logos/selenoid.svg" width="35" /> `Selenoid` 
 <img src="src/test/resources/images/logos/docker.svg" width="45" /> `Docker` - запуск автотестов в изолированных сессиях на билд-сервере;<br/>
-<img src="src/test/resources/images/logos/allure.svg" width="28" /> `Allure Report` - формирование отчетности по итогам тестирования, рассылка оповещений в мессенджеры;<br/>
+<img src="src/test/resources/images/logos/allure.svg" width="28" /> `Allure Report` - формирование отчетности по итогам тестирования;<br/>
 <img src="src/test/resources/images/logos/allure_testops.svg" width="24.5" /> `Allure TestOps` - создание тестовой документации.
 
 
