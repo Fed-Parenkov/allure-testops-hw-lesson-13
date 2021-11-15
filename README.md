@@ -46,7 +46,14 @@ test
 
 ---
 ### Интеграция с Allure Report и Allure TestOps
-В настройках послесборочных операций Jenkins job добавлен **Post Buil Task** со скриптом, который проверяет наличие jar-файла allure-notifications в корне репозитория проекта и, при его отсутствии, скачивает данный файл из репозитория https://github.com/qa-guru/allure-notifications/releases
+Результаты выполнения сборки Allure Report формируются в директории `build/allure-results`.<br/><br/>
+![](src/test/resources/images/screenshots/allure_task.png)
+Интеграция с Allure TestOps задается в настройках среды сборки:<br/><br/>
+![](src/test/resources/images/screenshots/allure-server.png)
+
+---
+### Настройка оповещений
+Для настройки рассылок оповещений о результатах прогона тестов в мессенджеры Telegram и Slack используется jar-файл allure-notifications из репозитория проекта [Allure notifications](https://github.com/qa-guru/allure-notifications/releases). В настройках послесборочных операций Jenkins job добавлен **Post Buil Task** со скриптом, который проверяет наличие jar-файла allure-notifications в корне репозитория проекта и, при его отсутствии, скачивает данный файл из репозитория https://github.com/qa-guru/allure-notifications/releases
 ```
 cd ..
 FILE=./allure-notifications-${ALLURE_NOTIFICATIONS_VERSION}.jar
@@ -54,13 +61,7 @@ if [ ! -f "$FILE" ]; then
    wget https://github.com/qa-guru/allure-notifications/releases/download/${ALLURE_NOTIFICATIONS_VERSION}/allure-notifications-${ALLURE_NOTIFICATIONS_VERSION}.jar
 fi
 ```
-Результаты выполнения сборки Allure Report формируются в директории `build/allure-results`.<br/>
-Интеграция с Allure TestOps задается в настройках среды сборки:<br/><br/>
-![](src/test/resources/images/screenshots/allure-server.png)
-
----
-### Настройка оповещений
-Для рассылки оповещений в мессенджеры Telegram и Slack о результатах прогона тестов в настройках Jenkins добавлены шаги сборки **Create/Update Text File** для создания json-файлов, содержащих идентификационные данные приложений-ботов и чатов в мессенджерах, в которые производится отправка оповещений. Также для каждого мессенджера создан **Post Buil Task** со скриптом, который запускает рассылку оповещений:
+Также в настройках сборки добавлены шаги сборки **Create/Update Text File** для создания json-файлов, содержащих идентификационные данные приложений-ботов и чатов в мессенджерах, в которые производится отправка оповещений. Для каждого мессенджера создан **Post Buil Task** со скриптом, который запускает рассылку оповещений:
 
 ```
 java "-DprojectName=${JOB_NAME}" "-Denv=<enviroment>" "-DreportLink=${BUILD_URL}" "-Dcomm=<some comment>" "-Dconfig.file=./src/test/resources/notifications/<messenger name>.json" -jar ../allure-notifications-{ALLURE_NOTIFICATIONS_VERSION}.jar
