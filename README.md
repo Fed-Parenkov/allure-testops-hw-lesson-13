@@ -1,4 +1,4 @@
-## <p align="center">Пример создания автотестов для [сайта](https://www.tezis-doc.ru/)<br/>системы электронного документооборота <img src="https://tezis-doc.ru/images/header/logo.svg" width="9%"></p>
+## <p align="center">Пример создания автотестов для [сайта](https://www.tezis-doc.ru/)<br/>системы электронного документооборота <img src="src/test/resources/images/logos/tezis.svg" width="100" /></p>
 В данном проекте представлен пример создания UI автотестов для web-версии сайта https://www.tezis-doc.ru.<br/>
 Тестируемая функциональность - элементы модуля "Header главной страницы":
 - Title главной страницы;
@@ -9,17 +9,17 @@
 - Форма обратного звонка.
 ---
 ### Использованный технологический стек
-<img src="src/test/resources/images/logos/java.svg" width="2.5%"> `Java` 
-<img src="src/test/resources/images/logos/selenide.png" width="3%"> `Selenide` 
-<img src="src/test/resources/images/logos/junit.svg" width="3%"> `JUnit` - написание исходного кода;<br/>
+<img src="src/test/resources/images/logos/java.svg" width="27" /> `Java` 
+<img src="src/test/resources/images/logos/Selenide (1).svg" width="42" /> `Selenide` 
+<img src="src/test/resources/images/logos/junit.svg" width="33" /> `JUnit` - написание исходного кода;<br/>
 
-<img src="src/test/resources/images/logos/gradle.svg" width="3.2%"> `Gradle` 
-<img src="src/test/resources/images/logos/jenkins.svg" width="2.5%"> `Jenkins` - сборка и запуск автотестов на удаленном билд-сервере;<br/>
+<img src="src/test/resources/images/logos/gradle.svg" width="35" height="35" /> `Gradle` 
+<img src="src/test/resources/images/logos/jenkins.svg" width="35" height="35" /> `Jenkins` - сборка и запуск автотестов на удаленном билд-сервере;<br/>
 
-<img src="src/test/resources/images/logos/selenoid.svg" width="3%"> `Selenoid` 
-<img src="src/test/resources/images/logos/docker.svg" width="4%"> `Docker` - запуск автотестов в изолированных сессиях на билд-сервере;<br/>
-<img src="src/test/resources/images/logos/allure.svg" width="2.5%"> `Allure Report` - формирование отчетности по итогам тестирования, рассылка оповещений в мессенджеры;<br/>
-<img src="src/test/resources/images/logos/allure_testops.svg" width="2.2%"> `Allure TestOps` - создание тестовой документации.
+<img src="src/test/resources/images/logos/selenoid.svg" width="35" /> `Selenoid` 
+<img src="src/test/resources/images/logos/docker.svg" width="45" /> `Docker` - запуск автотестов в изолированных сессиях на билд-сервере;<br/>
+<img src="src/test/resources/images/logos/allure.svg" width="28" /> `Allure Report` - формирование отчетности по итогам тестирования, рассылка оповещений в мессенджеры;<br/>
+<img src="src/test/resources/images/logos/allure_testops.svg" width="24.5" /> `Allure TestOps` - создание тестовой документации.
 
 
 ---
@@ -68,12 +68,14 @@ java "-DprojectName=${JOB_NAME}" "-Denv=<enviroment>" "-DreportLink=${BUILD_URL}
 ```
 ---
 ### Результаты прогона тестов
+
+
 ![](src/test/resources/images/logos/build.svg)
-#### Сборка Jenkins
+### Сборка Jenkins
 :arrow_right: [**Jenkins Job**](https://jenkins.autotests.cloud/job/08-parenkov-fedor-tezis-doc/) :arrow_left:
 
 ---
-#### Отчет в Allure Report
+### Отчет в Allure Report
 ![](src/test/resources/images/screenshots/allure_3.png)
 ![](src/test/resources/images/screenshots/allure_4.png)
 ![](src/test/resources/images/screenshots/allure_5.png)
@@ -84,7 +86,7 @@ java "-DprojectName=${JOB_NAME}" "-Denv=<enviroment>" "-DreportLink=${BUILD_URL}
 ![](src/test/resources/images/screenshots/allure_2.png)
 
 ---
-#### Видео работы тестов<br/><br/>
+### Видео работы тестов<br/><br/>
 **[NEGATIVE] Отправка заявки на обратный звонок с незаполненными полями формы**<br/><br/>
 ![](src/test/resources/images/attachs/blank_callback_form.gif)
 
@@ -101,14 +103,14 @@ java "-DprojectName=${JOB_NAME}" "-Denv=<enviroment>" "-DreportLink=${BUILD_URL}
 ![](src/test/resources/images/attachs/search.gif)
 
 ---
-#### Оповещения о статусе сборки в мессенджерах
-<img src="src/test/resources/images/logos/slack.svg" width="8%"><br/>
+### Оповещения о статусе сборки в мессенджерах
+<img src="src/test/resources/images/logos/slack.svg" width="80" /><br/>
 ![](src/test/resources/images/screenshots/slack_notice.png)
 ---
-<img src="src/test/resources/images/logos/telegram.svg" width="10.2%"><br/>
+<img src="src/test/resources/images/logos/telegram.svg" width="100" /><br/>
 ![](src/test/resources/images/screenshots/telegram_notice.png)
 
 ---
-#### Тестовая документация, сгенерированная в Allure TestOps по итогам прогона тестов
+### Тестовая документация, сгенерированная в Allure TestOps по итогам прогона тестов
 ![](src/test/resources/images/screenshots/allure_testops_1.png)<br/><br/>
 ![](src/test/resources/images/screenshots/allure_testops_2.png)
