@@ -10,7 +10,7 @@
 ---
 ### Использованный технологический стек
 <img src="src/test/resources/images/logos/java.svg" width="27" /> `Java` 
-<img src="src/test/resources/images/logos/Selenide (1).svg" width="42" /> `Selenide` 
+<img src="src/test/resources/images/logos/selenide.svg" width="42" /> `Selenide` 
 <img src="src/test/resources/images/logos/junit.svg" width="33" /> `JUnit` - написание исходного кода;<br/>
 
 <img src="src/test/resources/images/logos/gradle.svg" width="35" height="35" /> `Gradle` 
