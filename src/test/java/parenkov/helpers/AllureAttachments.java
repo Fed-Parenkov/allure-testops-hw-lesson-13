@@ -38,7 +38,7 @@ public class AllureAttachments {
         URL videoUrl = DriverUtils.getVideoUrl(sessionId);
         if (videoUrl != null) {
             InputStream videoInputStream = null;
-            sleep(1000);
+            sleep(20000);
 
             for (int i = 0; i < 10; i++) {
                 try {
@@ -51,11 +51,7 @@ public class AllureAttachments {
                     e.printStackTrace();
                 }
             }
-            if (videoInputStream != null) {
-                Allure.addAttachment("Video", "video/mp4", videoInputStream, "mp4");
-            }
+            Allure.addAttachment("Video", "video/mp4", videoInputStream, "mp4");
         }
     }
-
-
 }
