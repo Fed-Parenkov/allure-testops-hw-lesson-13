@@ -47,7 +47,7 @@ public class HeaderTests extends TestBase {
     }, delimiter = ';')
     @ParameterizedTest(name = "{displayName} [{0} {1}]")
     @AllureId("5921")
-    @DisplayName("Корректность названий пунктов")
+    @DisplayName("Корректность названия пункта")
     @Severity(SeverityLevel.NORMAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
     void checkItemsNames(String name, String link) {
