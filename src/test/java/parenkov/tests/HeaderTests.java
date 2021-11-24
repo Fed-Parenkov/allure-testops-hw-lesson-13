@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class HeaderTests extends TestBase {
 
     @Test
-    @AllureId("5819")
+//    @AllureId("5...")
     @DisplayName("Корректность тайтла")
     @Severity(SeverityLevel.MINOR)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
@@ -45,8 +45,8 @@ public class HeaderTests extends TestBase {
             "Компания; /company/",
             "Госсектор; /gossector"
     }, delimiter = ';')
-    @ParameterizedTest(name = "{displayName} [{0} {1}]")
-    @AllureId("5921")
+    @ParameterizedTest(name = "{displayName} [{0}]")
+//    @AllureId("5...")
     @DisplayName("Корректность названия пункта")
     @Severity(SeverityLevel.NORMAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
