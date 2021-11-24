@@ -19,10 +19,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @Feature("Header главной страницы")
 public class HeaderTests extends TestBase {
 
+    @Test
+    @DisplayName("Корректность тайтла")
     @Severity(SeverityLevel.MINOR)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Корректность тайтла")
-    @Test
     void pageTitle() {
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
@@ -35,10 +35,10 @@ public class HeaderTests extends TestBase {
         });
     }
 
+    @Test
+    @DisplayName("Отображение логотипа")
     @Severity(SeverityLevel.NORMAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Отображение логотипа")
-    @Test
     void checkLogo() {
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
@@ -47,9 +47,6 @@ public class HeaderTests extends TestBase {
                 $("#logo-tezis").shouldBe(visible));
     }
 
-    @Severity(SeverityLevel.NORMAL)
-    @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Корректность названий пунктов")
     @CsvSource(value = {
             "Система; /features/",
             "Услуги; /services/",
@@ -59,8 +56,12 @@ public class HeaderTests extends TestBase {
             "Компания; /company/",
             "Госсектор; /gossector"
     }, delimiter = ';')
-    @ParameterizedTest(name = "Корректность названия пункта {0}")
+    @ParameterizedTest(name = "Корректность названия пункта [{0}]")
+    @Severity(SeverityLevel.NORMAL)
+    @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
     void checkItemsNames(String name, String link) {
+        Allure.parameter("name", name);
+        Allure.parameter("link", link);
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
 
@@ -69,9 +70,6 @@ public class HeaderTests extends TestBase {
                         .shouldBe(visible).shouldHave(text(name)));
     }
 
-    @Severity(SeverityLevel.CRITICAL)
-    @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Переход по ссылкам пунктов")
     @CsvSource(value = {
             "Система; features/",
             "Услуги; services/",
@@ -81,8 +79,12 @@ public class HeaderTests extends TestBase {
             "Компания; company/",
             "Госсектор; gossector/"
     }, delimiter = ';')
-    @ParameterizedTest(name = "Переход из главной страницы в раздел {0}")
+    @ParameterizedTest(name = "Переход из главной страницы в раздел [{0}]")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
     void checkItemsLinks(String name, String link) {
+        Allure.parameter("name", name);
+        Allure.parameter("link", link);
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
 
@@ -96,9 +98,6 @@ public class HeaderTests extends TestBase {
         });
     }
 
-    @Severity(SeverityLevel.NORMAL)
-    @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Появление pop-ups пунктов при наведении курсора")
     @CsvSource(value = {
             "Система; sub-nav",
             "Услуги; sub-nav services",
@@ -107,7 +106,11 @@ public class HeaderTests extends TestBase {
             "Компания; sub-nav company"
     }, delimiter = ';')
     @ParameterizedTest(name = "Появление pop-up пункта {0} при наведении курсора")
+    @Severity(SeverityLevel.NORMAL)
+    @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
     void checkHeaderPopups(String name, String value) {
+        Allure.parameter("name", name);
+        Allure.parameter("link", value);
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
 
@@ -118,10 +121,10 @@ public class HeaderTests extends TestBase {
                 $("[class='" + value + "']").shouldBe(visible));
     }
 
+    @Test
+    @DisplayName("Выполнение поиска")
     @Severity(SeverityLevel.MINOR)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Выполнение поиска")
-    @Test
     void checkSearchButton() {
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
@@ -141,10 +144,10 @@ public class HeaderTests extends TestBase {
         });
     }
 
+    @Test
+    @DisplayName("Отображение контактного номера телефона")
     @Severity(SeverityLevel.CRITICAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Отображение контактного номера телефона")
-    @Test
     void checkPhoneNumber() {
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
@@ -153,10 +156,10 @@ public class HeaderTests extends TestBase {
                 $(".tel").shouldBe(visible).shouldHave(text("8 800 77 55 205")));
     }
 
+    @Test
+    @DisplayName("Отображение элементов формы 'Обратный звонок'")
     @Severity(SeverityLevel.NORMAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Отображение элементов формы 'Обратный звонок'")
-    @Test
     void checkCallBackForm() {
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
@@ -183,10 +186,10 @@ public class HeaderTests extends TestBase {
         });
     }
 
+    @Test
+    @DisplayName("[NEGATIVE] Отправка заявки на обратный звонок с незаполненными полями формы")
     @Severity(SeverityLevel.NORMAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("[NEGATIVE] Отправка заявки на обратный звонок с незаполненными полями формы")
-    @Test
     void checkSendBlankForm() {
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
