@@ -51,8 +51,8 @@ public class HeaderTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
     void checkItemsNames(String name, String link) {
-        Allure.parameter("name", name);
-        Allure.parameter("link", link);
+//        Allure.parameter("name", name);
+//        Allure.parameter("link", link);
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
 
