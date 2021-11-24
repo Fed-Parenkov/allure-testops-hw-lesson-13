@@ -37,6 +37,7 @@ public class HeaderTests extends TestBase {
 
     @Severity(SeverityLevel.NORMAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
+    @DisplayName("Корректность названий пунктов")
     @CsvSource(value = {
             "Система; /features/",
             "Услуги; /services/",
@@ -46,8 +47,7 @@ public class HeaderTests extends TestBase {
             "Компания; /company/",
             "Госсектор; /gossector"
     }, delimiter = ';')
-    @ParameterizedTest(name = "{Корректность названия пункта} [{0} {1}]")
-    @DisplayName("Корректность названий пунктов")
+    @ParameterizedTest(name = "{displayName} [{0} {1}]")
     void checkItemsNames(String name, String link) {
         Allure.parameter("name", name);
         Allure.parameter("link", link);
