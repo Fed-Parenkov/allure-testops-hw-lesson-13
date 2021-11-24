@@ -19,10 +19,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @Feature("Header главной страницы")
 public class HeaderTests extends TestBase {
 
+    @Test
+    @AllureId("5819")
+    @DisplayName("Корректность тайтла")
     @Severity(SeverityLevel.MINOR)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Корректность тайтла")
-    @Test
     void pageTitle() {
         step("Открыть главную страницу", () ->
                 open("https://www.tezis-doc.ru/"));
@@ -35,9 +36,6 @@ public class HeaderTests extends TestBase {
         });
     }
 
-    @Severity(SeverityLevel.NORMAL)
-    @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
-    @DisplayName("Корректность названий пунктов")
     @CsvSource(value = {
             "Система; /features/",
             "Услуги; /services/",
@@ -48,6 +46,10 @@ public class HeaderTests extends TestBase {
             "Госсектор; /gossector"
     }, delimiter = ';')
     @ParameterizedTest(name = "{displayName} [{0} {1}]")
+    @AllureId("5921")
+    @DisplayName("Корректность названий пунктов")
+    @Severity(SeverityLevel.NORMAL)
+    @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
     void checkItemsNames(String name, String link) {
         Allure.parameter("name", name);
         Allure.parameter("link", link);
