@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class HeaderTests extends TestBase {
 
     @Test
+    @AllureId("5819")
     @DisplayName("Корректность тайтла")
     @Severity(SeverityLevel.MINOR)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
@@ -36,6 +37,7 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
+    @AllureId("5816")
     @DisplayName("Отображение логотипа")
     @Severity(SeverityLevel.NORMAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
@@ -57,6 +59,7 @@ public class HeaderTests extends TestBase {
             "Госсектор; /gossector"
     }, delimiter = ';')
     @ParameterizedTest(name = "Корректность названия пункта [{0}]")
+    @AllureId("5921")
     @Severity(SeverityLevel.NORMAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
     void checkItemsNames(String name, String link) {
@@ -80,6 +83,7 @@ public class HeaderTests extends TestBase {
             "Госсектор; gossector/"
     }, delimiter = ';')
     @ParameterizedTest(name = "Переход из главной страницы в раздел [{0}]")
+    @AllureId("5926")
     @Severity(SeverityLevel.CRITICAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
     void checkItemsLinks(String name, String link) {
@@ -105,7 +109,8 @@ public class HeaderTests extends TestBase {
             "Партнеры; sub-nav partners",
             "Компания; sub-nav company"
     }, delimiter = ';')
-    @ParameterizedTest(name = "Появление pop-up пункта {0} при наведении курсора")
+    @ParameterizedTest(name = "Появление pop-up пункта [{0}] при наведении курсора")
+    @AllureId("5925")
     @Severity(SeverityLevel.NORMAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
     void checkHeaderPopups(String name, String value) {
@@ -122,6 +127,7 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
+    @AllureId("5818")
     @DisplayName("Выполнение поиска")
     @Severity(SeverityLevel.MINOR)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
@@ -145,7 +151,8 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Отображение контактного номера телефона")
+    @AllureId("5812")
+    @DisplayName("Отображение номера телефона")
     @Severity(SeverityLevel.CRITICAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
     void checkPhoneNumber() {
@@ -157,6 +164,7 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
+    @AllureId("5813")
     @DisplayName("Отображение элементов формы 'Обратный звонок'")
     @Severity(SeverityLevel.NORMAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
@@ -187,6 +195,7 @@ public class HeaderTests extends TestBase {
     }
 
     @Test
+    @AllureId("5815")
     @DisplayName("[NEGATIVE] Отправка заявки на обратный звонок с незаполненными полями формы")
     @Severity(SeverityLevel.NORMAL)
     @Link(name = "Главная страница", url = "https://www.tezis-doc.ru/")
