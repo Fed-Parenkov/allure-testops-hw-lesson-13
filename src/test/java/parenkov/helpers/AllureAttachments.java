@@ -10,7 +10,7 @@ import java.net.URL;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class AllureAttachments {
-//    public static final Logger LOGGER = LoggerFactory.getLogger(AllureAttachments.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(AllureAttachments.class);
 
     @Attachment(value = "{attachName}", type = "text/plain")
     private static String addMessage(String attachName, String text) {
