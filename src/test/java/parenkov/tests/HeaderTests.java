@@ -40,8 +40,7 @@ public class HeaderTests extends TestBase {
                 open("https://www.tezis-doc.ru/"));
 
         step("Проверить корректность тайтла страницы", () -> {
-            String expectedTitle = "Система электронного документооборота. " +
-                    "СЭД ТЕЗИС – система для работы с документами";
+            String expectedTitle = "СЭД ТЕЗИС — система для оптимизации электронного документообоорота";
             String actualTitle = title();
             assertThat(actualTitle).isEqualTo(expectedTitle);
         });
