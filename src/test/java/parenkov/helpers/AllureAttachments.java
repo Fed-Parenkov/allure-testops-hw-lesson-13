@@ -2,15 +2,18 @@ package parenkov.helpers;
 
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class AllureAttachments {
     public static final Logger LOGGER = LoggerFactory.getLogger(AllureAttachments.class);
@@ -34,24 +37,25 @@ public class AllureAttachments {
         return DriverUtils.getPageSourceAsBytes();
     }
 
-    public static void addVideo(String sessionId) {
-        URL videoUrl = DriverUtils.getVideoUrl(sessionId);
-        if (videoUrl != null) {
-            InputStream videoInputStream = null;
-            sleep(20000);
+    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
+    public static String addVideo() {
+        return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
+                + getVideoUrl(getSessionId())
+                + "' type='video/mp4'></video></body></html>";
+    }
 
-            for (int i = 0; i < 10; i++) {
-                try {
-                    videoInputStream = videoUrl.openStream();
-                    break;
-                } catch (FileNotFoundException e) {
-                    sleep(1000);
-                } catch (IOException e) {
-                    LOGGER.warn("[ALLURE VIDEO ATTACHMENT ERROR] Cant attach allure video, {}", videoUrl);
-                    e.printStackTrace();
-                }
-            }
-            Allure.addAttachment("Video", "video/mp4", videoInputStream, "mp4");
+    public static URL getVideoUrl(String sessionId) {
+        String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId + ".mp4";
+
+        try {
+            return new URL(videoUrl);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
         }
+        return null;
+    }
+
+    public static String getSessionId() {
+        return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
     }
 }
