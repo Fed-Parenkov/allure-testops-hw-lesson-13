@@ -39,3 +39,5 @@ target/
 /gradlew.bat
 .todo
 *.properties
+/src/test/java/parenkov/docs/
+/src/test/resources/tpl/
